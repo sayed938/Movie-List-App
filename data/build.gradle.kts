@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -40,4 +42,24 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    //hilt
+    implementation(libs.hilt.android.v2511)
+    kapt(libs.hilt.android.compiler)
+    kapt(libs.androidx.hilt.compiler)
+    kapt(libs.androidx.hilt.compiler)
+    implementation (libs.androidx.preference.ktx)
+
+    //Room
+    implementation (libs.androidx.room.runtime)
+    annotationProcessor(libs.room.compiler)
+    //noinspection KaptUsageInsteadOfKsp
+    kapt (libs.room.compiler)
+
+
+
 }
