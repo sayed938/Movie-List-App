@@ -2,4 +2,7 @@
     <string name="app_name">Movie List App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="popular">Popular</string>
+    <string name="searchIcon">searchIcon</string>
+    <string name="movie_item">Movie Item</string>
 </resources>
