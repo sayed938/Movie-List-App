@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment">
+    tools:context=".ui.fragment.MainFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolbar"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainToolbar"
         tools:itemCount="4"
-        tools:listitem="@layout/gategory_recycler_item" />
+        tools:listitem="@layout/category_recycler_item" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainRecycler"
