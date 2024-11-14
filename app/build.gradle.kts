@@ -56,4 +56,5 @@ dependencies {
     kapt(libs.androidx.hilt.compiler)
     kapt(libs.androidx.hilt.compiler)
     implementation (libs.androidx.preference.ktx)
+    implementation(libs.imageslideshow)
 }
