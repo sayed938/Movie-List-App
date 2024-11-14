@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/detailsImageSlider"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="200.dp"
+        app:iss_auto_cycle="true"
+        app:iss_delay="0"
+        app:iss_error_image="@color/off_white"
+        app:iss_period="1000"
+        app:iss_placeholder="@color/off_white"
+        app:iss_selected_dot="@drawable/default_selected_dot"
+        app:iss_unselected_dot="@drawable/default_unselected_dot"
+        tools:ignore="MissingConstraints" />
 
-</FrameLayout>
+
+    <TextView
+        android:id="@+id/detailsMovieTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Title"
+        android:textSize="22.sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailsImageSlider" />
+
+    <TextView
+        android:id="@+id/detailsMovieVote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="7.4"
+        android:textSize="15.sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toEndOf="@+id/detailsMovieTitle"
+        app:layout_constraintTop_toBottomOf="@+id/detailsImageSlider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="15.dp"
+        android:layout_marginStart="28.dp"
+        android:layout_marginTop="10.dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailsMovieTitle">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineHeight="22dp"
+            android:text="To implement an image slider in an Android app using Kotlin, you can use various third-party libraries that simplify the process. One of the most popular libraries for this purpose is ViewPager2 combined with a slider library like Glide or Picasso for image loading.
+
+Here, I'll show you the steps and dependencies for adding a simple image slider to your Android app using Kotlin with ViewPager2 and Glide for image loading."
+            android:textSize="18.sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
