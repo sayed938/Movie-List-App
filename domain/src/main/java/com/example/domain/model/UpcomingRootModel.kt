@@ -7,3 +7,8 @@ data class UpcomingRootModel(
     val totalPages: Long,
     val totalResults: Long,
 )
+data class MovieDateModel(
+    val maximum: String,
+    val minimum: String,
+
+    )
