@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomToolbarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">26sp</item> <!-- Increase font size -->
+        <item name="android:textColor">@android:color/white</item> <!-- Optional: change color -->
+        <item name="android:fontFamily">sans-serif-medium</item> <!-- Optional: set font family -->
+    </style>
+</resources>

@@ -3,14 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainFragment">
+    android:layout_height="wrap_content"
+    android:background="@color/main_color"
+    tools:context=".ui.fragment.MainFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/off_white"
+        android:layout_height="50.dp"
+        app:title="Main"
+        app:titleTextAppearance="@style/CustomToolbarTitle"
+        app:titleTextColor="@color/white"
+        android:background="@color/main_color"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,37 +22,49 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="50.dp"
-            android:layout_height="50.dp"
+            android:id="@+id/searchIcon"
+            android:layout_width="35.dp"
+            android:layout_height="35.dp"
             android:layout_gravity="end"
             android:layout_marginEnd="10.dp"
             android:background="@drawable/baseline_search_24"
             android:contentDescription="@string/searchIcon" />
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/gategoryRecycler"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="60.dp"
-        android:background="@color/off_white"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolbar"
-        tools:itemCount="4"
-        tools:listitem="@layout/gategory_recycler_item" />
+        app:layout_constraintTop_toBottomOf="@+id/mainToolbar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="40.dp"
+            android:background="@color/main_color"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainToolbar"
+            tools:itemCount="4"
+            tools:listitem="@layout/category_recycler_item" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainRecycler"
-        android:layout_width="409dp"
-        android:layout_height="669dp"
-        android:layout_marginTop="50.dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gategoryRecycler"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0"
         app:spanCount="2"
         tools:listitem="@layout/main_movies_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

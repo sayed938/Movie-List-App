@@ -47,7 +47,7 @@ dependencies {
     implementation(libs.hilt.android.v2511)
     kapt(libs.hilt.android.compiler)
     kapt(libs.androidx.hilt.compiler)
-    kapt("androidx.hilt:hilt-compiler:1.2.0")
+    kapt(libs.androidx.hilt.compiler)
     implementation (libs.androidx.preference.ktx)
 
 }
