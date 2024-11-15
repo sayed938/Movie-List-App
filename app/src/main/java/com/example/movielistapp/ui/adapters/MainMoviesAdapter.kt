@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.domain.model.MovieModel
+import com.example.domain.entity.MovieModel
 import com.example.movielistapp.R
 import com.example.movielistapp.ui.AppData.AppData
 import com.squareup.picasso.Picasso

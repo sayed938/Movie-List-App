@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
+    id("kotlin-android")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -35,7 +36,7 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":domain"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -52,14 +53,13 @@ dependencies {
     kapt(libs.hilt.android.compiler)
     kapt(libs.androidx.hilt.compiler)
     kapt(libs.androidx.hilt.compiler)
-    implementation (libs.androidx.preference.ktx)
+    implementation(libs.androidx.preference.ktx)
 
     //Room
-    implementation (libs.androidx.room.runtime)
+    implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.room.compiler)
     //noinspection KaptUsageInsteadOfKsp
-    kapt (libs.room.compiler)
-
+    kapt(libs.room.compiler)
 
 
 }

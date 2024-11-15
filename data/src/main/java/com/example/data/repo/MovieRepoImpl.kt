@@ -1,4 +1,12 @@
 package com.example.data.repo
 
-class MovieRepoImpl {
+import com.example.data.utils.AppData
+import com.example.data.remote.MovieService
+import com.example.domain.entity.MovieRootModel
+import com.example.domain.repo.MovieRepo
+import javax.inject.Inject
+
+class MovieRepoImpl @Inject constructor(private var movieService: MovieService) : MovieRepo {
+    override fun getMovies(category: String): MovieRootModel =
+        movieService.getMovies(category, AppData.apiKey)
 }

@@ -1,4 +1,4 @@
-package com.example.domain.model
+package com.example.domain.entity
 
 data class UpcomingRootModel(
     val dates: MovieDateModel,
