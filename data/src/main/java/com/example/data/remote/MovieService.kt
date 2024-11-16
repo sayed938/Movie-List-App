@@ -1,5 +1,8 @@
 package com.example.data.remote
 
+import android.media.Image
+import com.example.domain.entity.DetailsModel
+import com.example.domain.entity.ImagesModel
 import com.example.domain.entity.MovieRootModel
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -11,4 +14,16 @@ interface MovieService {
         @Path("sort") sort: String,
         @Query("api_key") apiKey: String
     ):MovieRootModel
+
+    @GET("movie/{sort}")
+    suspend fun getDetails(
+        @Path("sort") sort: String,
+        @Query("api_key") apiKey: String
+    ):DetailsModel
+
+    @GET("movie/{sort}/images")
+    suspend fun getImages(
+        @Path("sort") sort: String,
+        @Query("api_key") apiKey: String
+    ):ImagesModel
 }
