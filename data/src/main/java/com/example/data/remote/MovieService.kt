@@ -6,8 +6,8 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieService {
-    @GET("/{sort}")
-    fun getMovies(
+    @GET("movie/{sort}")
+    suspend fun getMovies(
         @Path("sort") sort: String,
         @Query("api_key") apiKey: String
     ):MovieRootModel

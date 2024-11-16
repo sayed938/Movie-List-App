@@ -7,6 +7,6 @@ import com.example.domain.repo.MovieRepo
 import javax.inject.Inject
 
 class MovieRepoImpl @Inject constructor(private var movieService: MovieService) : MovieRepo {
-    override fun getMovies(category: String): MovieRootModel =
+    override suspend fun getMovies(category: String): MovieRootModel =
         movieService.getMovies(category, AppData.apiKey)
 }

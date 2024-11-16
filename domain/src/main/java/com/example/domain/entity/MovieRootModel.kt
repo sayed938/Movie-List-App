@@ -1,24 +1,25 @@
 package com.example.domain.entity
 
-data class MovieRootModel (
-    val page: Long,
-    val results: List<MovieModel>,
-    val totalPages: Long,
-    val totalResults: Long,
+data class MovieRootModel(
+    var page: Int,
+    var results: ArrayList<MovieModel>,
+    var total_pages: Int,
+    var total_results: Int
 )
+
 data class MovieModel(
-    val adult: Boolean,
-    val backdropPath: String,
-    val genreIds: List<Long>,
-    val id: Long,
-    val originalLanguage: String,
-    val originalTitle: String,
-    val overview: String,
-    val popularity: Double,
-    val posterPath: String,
-    val releaseDate: String,
-    val title: String,
-    val video: Boolean,
-    val voteAverage: Double,
-    val voteCount: Long,
+    var dult: Boolean,
+    var backdrop_path: String,
+    var genre_ids: ArrayList<Int>,
+    var id: Int,
+    var original_language: String,
+    var original_title: String,
+    var overview: String,
+    var popularity: Double,
+    var poster_path: String,
+    var release_date: String,
+    var title: String,
+    var video: Boolean,
+    var vote_average: Double,
+    var vote_count: Int
 )
