@@ -1,4 +1,4 @@
-package com.example.movielistapp.ui.AppData
+package com.example.movielistapp.ui.appdata
 
 object AppData {
 

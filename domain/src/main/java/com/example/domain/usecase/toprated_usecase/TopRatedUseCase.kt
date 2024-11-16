@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class TopRatedUseCase @Inject constructor(private var topRatedMovies: MovieRepo) :
     TopRatedUseCaseRepo {
-    override fun getTopRatedMovies(topRated: String): MovieRootModel =
+    override suspend fun getTopRatedMovies(topRated: String): MovieRootModel =
         topRatedMovies.getMovies(topRated)
 
 }
