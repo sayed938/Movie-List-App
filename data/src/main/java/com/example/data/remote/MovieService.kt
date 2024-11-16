@@ -26,4 +26,10 @@ interface MovieService {
         @Path("sort") sort: String,
         @Query("api_key") apiKey: String
     ):ImagesModel
+
+    @GET("discover/movie")
+    suspend fun getSearchedMovies(
+        @Query("with_keywords") withKeyWords: String,
+        @Query("api_key") apiKey: String
+    ):MovieRootModel
 }

@@ -3,6 +3,7 @@ package com.example.domain.di
 import com.example.domain.repo.DetailsRepo
 import com.example.domain.repo.ImageRepo
 import com.example.domain.repo.MovieRepo
+import com.example.domain.repo.SearchRepo
 import com.example.domain.usecase.details_usecase.DetailsUSeCaseRepo
 import com.example.domain.usecase.details_usecase.DetailsUseCase
 import com.example.domain.usecase.details_usecase.image_usecase.ImageUseCase
@@ -11,6 +12,8 @@ import com.example.domain.usecase.nowplaying_usecase.NowPlayingUseCase
 import com.example.domain.usecase.nowplaying_usecase.NowPlayingUseCaseRepo
 import com.example.domain.usecase.popular_usecase.PopularUseCase
 import com.example.domain.usecase.popular_usecase.PopularUseCaseRepo
+import com.example.domain.usecase.search_usecase.SearchUseCase
+import com.example.domain.usecase.search_usecase.SearchUseCaseRepo
 import com.example.domain.usecase.toprated_usecase.TopRatedUseCase
 import com.example.domain.usecase.toprated_usecase.TopRatedUseCaseRepo
 import com.example.domain.usecase.upcoming_usecase.UpcomingUseCase
@@ -60,6 +63,13 @@ object UseCaseModule {
     @Singleton
     fun provideImagesUseCase(movieImages: ImageRepo): ImageUseCaseRepo {
         return ImageUseCase(movieImages)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideSearchUseCase(searchMovie: SearchRepo): SearchUseCaseRepo {
+        return SearchUseCase(searchMovie)
     }
 
 }
