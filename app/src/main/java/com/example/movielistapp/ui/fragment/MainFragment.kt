@@ -1,5 +1,6 @@
 package com.example.movielistapp.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,7 +28,7 @@ class MainFragment :
     Fragment(R.layout.fragment_main), OnItemClickListener {
     private lateinit var binding: FragmentMainBinding
     private lateinit var category: String
-    private val viewModel: MoviesViewModel by viewModels()
+    private val movieModel: MoviesViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,11 +50,12 @@ class MainFragment :
             navigateToSearch()
         }
         lifecycleScope.launch {
-            viewModel.popularMovies.collect {
+            movieModel.popularMovies.collect {
                 if (it == null) {
                     delay(1000)
                 } else {
-                    binding.mainRecycler.adapter = MainMoviesAdapter(it.results)
+                    binding.mainRecycler.adapter =
+                        MainMoviesAdapter(it.results)
                 }
 
             }
@@ -64,61 +66,64 @@ class MainFragment :
         findNavController().navigate(R.id.action_mainFragment_to_searchFragment)
     }
 
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onItemClick(movie: String) {
-        when (movie) {
-            "Popular" -> {
-                lifecycleScope.launch {
-                    viewModel.popularMovies.collect {
+
+        lifecycleScope.launch {
+            when (movie) {
+                "Popular" -> {
+                    movieModel.popularMovies.collect {
                         if (it == null) {
                             delay(1000)
                         } else {
-                            binding.mainRecycler.adapter = MainMoviesAdapter(it.results)
+                            binding.mainRecycler.adapter =
+                                MainMoviesAdapter(it.results)
                         }
 
                     }
                 }
-            }
 
-            "Top Rated" -> {
-                lifecycleScope.launch {
-                    viewModel.topRatedMovies.collect {
+                "Top Rated" -> {
+                    movieModel.topRatedMovies.collect {
                         if (it == null) {
                             delay(1000)
                         } else {
-                            binding.mainRecycler.adapter = MainMoviesAdapter(it.results)
+                            binding.mainRecycler.adapter =
+                                MainMoviesAdapter(it.results)
                         }
 
                     }
                 }
-            }
 
-            "Now Playing" -> {
-                lifecycleScope.launch {
-                    viewModel.nowPlayingMovies.collect {
-                        if (it == null) {
-                            delay(1000)
-                        } else {
-                            binding.mainRecycler.adapter = MainMoviesAdapter(it.results)
+                "Now Playing" -> {
+                    lifecycleScope.launch {
+                        movieModel.nowPlayingMovies.collect {
+                            if (it == null) {
+                                delay(1000)
+                            } else {
+                                binding.mainRecycler.adapter =
+                                    MainMoviesAdapter(it.results)
+
+
+                            }
                         }
+                    }
+                }
 
+                "Upcoming" -> {
+                    lifecycleScope.launch {
+                        movieModel.upcomingMovies.collect {
+                            if (it == null) {
+                                delay(1000)
+                            } else {
+                                binding.mainRecycler.adapter =
+                                    MainMoviesAdapter(it.results)
+                            }
+
+                        }
                     }
                 }
             }
-
-            "Upcoming" -> {
-                lifecycleScope.launch {
-                    viewModel.upcomingMovies.collect {
-                        if (it == null) {
-                            delay(1000)
-                        } else {
-                            binding.mainRecycler.adapter = MainMoviesAdapter(it.results)
-                        }
-
-                    }
-                }
-            }
-
         }
-
     }
 }

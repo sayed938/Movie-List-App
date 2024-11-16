@@ -1,6 +1,12 @@
 package com.example.domain.di
 
+import com.example.domain.repo.DetailsRepo
+import com.example.domain.repo.ImageRepo
 import com.example.domain.repo.MovieRepo
+import com.example.domain.usecase.details_usecase.DetailsUSeCaseRepo
+import com.example.domain.usecase.details_usecase.DetailsUseCase
+import com.example.domain.usecase.details_usecase.image_usecase.ImageUseCase
+import com.example.domain.usecase.details_usecase.image_usecase.ImageUseCaseRepo
 import com.example.domain.usecase.nowplaying_usecase.NowPlayingUseCase
 import com.example.domain.usecase.nowplaying_usecase.NowPlayingUseCaseRepo
 import com.example.domain.usecase.popular_usecase.PopularUseCase
@@ -42,6 +48,18 @@ object UseCaseModule {
     @Singleton
     fun provideUpcomingUseCase(upcomingMovies: MovieRepo): UpcomingUseCaseRepo {
         return UpcomingUseCase(upcomingMovies)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDetailsUseCase(movieDetails: DetailsRepo): DetailsUSeCaseRepo {
+        return DetailsUseCase(movieDetails)
+    }
+
+    @Provides
+    @Singleton
+    fun provideImagesUseCase(movieImages: ImageRepo): ImageUseCaseRepo {
+        return ImageUseCase(movieImages)
     }
 
 }
