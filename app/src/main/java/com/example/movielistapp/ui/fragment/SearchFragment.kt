@@ -12,7 +12,7 @@ import com.example.movielistapp.databinding.FragmentSearchBinding
 
 
 class SearchFragment : Fragment() {
-    lateinit var binding: FragmentSearchBinding
+    private lateinit var binding: FragmentSearchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -4,9 +4,11 @@ import com.example.data.remote.MovieService
 import com.example.data.repo.DetailsRepoImpl
 import com.example.data.repo.ImagedRepoImpl
 import com.example.data.repo.MovieRepoImpl
+import com.example.data.repo.SearchRepoImpl
 import com.example.domain.repo.DetailsRepo
 import com.example.domain.repo.ImageRepo
 import com.example.domain.repo.MovieRepo
+import com.example.domain.repo.SearchRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,5 +34,12 @@ object RepoModule {
     @Singleton
     fun provideImageRepo(movieService: MovieService): ImageRepo {
         return ImagedRepoImpl(movieService)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideSearchRepo(movieService: MovieService): SearchRepo {
+        return SearchRepoImpl(movieService)
     }
 }
