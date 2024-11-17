@@ -56,8 +56,8 @@ class MainFragment :
                     delay(1000)
                 } else {
                     binding.mainRecycler.adapter =
-                        MainMoviesAdapter(it.results,0)
-                    MainMoviesAdapter(it.results,0).notifyDataSetChanged()
+                        MainMoviesAdapter(it.results, 0)
+                    MainMoviesAdapter(it.results, 0).notifyDataSetChanged()
                 }
 
             }
@@ -75,11 +75,12 @@ class MainFragment :
             when (movie) {
                 "Popular" -> {
                     movieModel.popularMovies.collect {
-                        if (it == null) {
-                            delay(1000)
-                        } else {
+                        try {
                             binding.mainRecycler.adapter =
-                                MainMoviesAdapter(it.results,0)
+                                MainMoviesAdapter(it!!.results, 0)
+
+                        } catch (e: Exception) {
+                            delay(1000)
                         }
 
                     }
@@ -87,11 +88,12 @@ class MainFragment :
 
                 "Top Rated" -> {
                     movieModel.topRatedMovies.collect {
-                        if (it == null) {
-                            delay(1000)
-                        } else {
+                        try {
                             binding.mainRecycler.adapter =
-                                MainMoviesAdapter(it.results,0)
+                                MainMoviesAdapter(it!!.results, 0)
+
+                        } catch (e: Exception) {
+                            delay(1000)
                         }
 
                     }
@@ -100,13 +102,12 @@ class MainFragment :
                 "Now Playing" -> {
                     lifecycleScope.launch {
                         movieModel.nowPlayingMovies.collect {
-                            if (it == null) {
-                                delay(1000)
-                            } else {
+                            try {
                                 binding.mainRecycler.adapter =
-                                    MainMoviesAdapter(it.results,0)
+                                    MainMoviesAdapter(it!!.results, 0)
 
-
+                            } catch (e: Exception) {
+                                delay(1000)
                             }
                         }
                     }
@@ -115,11 +116,12 @@ class MainFragment :
                 "Upcoming" -> {
                     lifecycleScope.launch {
                         movieModel.upcomingMovies.collect {
-                            if (it == null) {
-                                delay(1000)
-                            } else {
+                            try {
                                 binding.mainRecycler.adapter =
-                                    MainMoviesAdapter(it.results,0)
+                                    MainMoviesAdapter(it!!.results, 0)
+
+                            } catch (e: Exception) {
+                                delay(1000)
                             }
 
                         }
