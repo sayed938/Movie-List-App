@@ -67,13 +67,15 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         lifecycleScope.launch {
             movieDetailsModel.movieDetails.collect {
                 withContext(Dispatchers.Main) {
-                    if (it == null) {
-                        delay(1000)
-                    } else {
-                        binding.progressBar.visibility = View.INVISIBLE
-                        binding.detailsMovieTitle.text = it.title
+                    try {
+                        binding.detailsMovieTitle.text = it!!.title
                         binding.movieDetailsBody.text = it.overview
                         binding.detailsMovieVote.text = it.vote_average.toString()
+                        binding.progressBar.visibility = View.INVISIBLE
+
+                    } catch (e:Exception) {
+                        delay(1000)
+                        binding.progressBar.visibility = View.VISIBLE
                     }
 
                 }
@@ -82,7 +84,7 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     }
 
-    fun imageSlider(it: ImagesModel) {
+    private fun imageSlider(it: ImagesModel) {
         val imageList = ArrayList<SlideModel>()
         imageList.add(
             SlideModel(
