@@ -13,20 +13,28 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.entity.MovieModel
 import com.example.movielistapp.R
 import com.example.movielistapp.ui.appdata.AppData
+import com.example.movielistapp.ui.fragment.MainFragment
 import com.example.movielistapp.ui.fragment.MainFragmentDirections
+import com.example.movielistapp.ui.fragment.SearchFragment
+import com.example.movielistapp.ui.fragment.SearchFragmentDirections
 import com.squareup.picasso.Picasso
 
 class MainMoviesAdapter(
-    private var movieList: List<MovieModel>
+    private var movieList: List<MovieModel>,private var flag:Int
 ) : RecyclerView.Adapter<MainMoviesAdapter.MainViewHolder>() {
 
     class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val movieImg: ImageView = itemView.findViewById(R.id.movieImg)
-        fun saveArgs(id: String) {
-            val action =
+        fun saveArgs(id: String,flag:Int) {
+            val actionMainToDetails =
                 MainFragmentDirections.actionMainFragmentToDetailsFragment(id)
+            val actionSearchToDetails =
+                SearchFragmentDirections.actionSearchFragmentToDetailsFragment(id)
+            if ( flag==0)
+                itemView.findNavController().navigate(actionMainToDetails)
+            else
+                itemView.findNavController().navigate(actionSearchToDetails)
 
-            itemView.findNavController().navigate(action)
 
         }
     }
@@ -42,7 +50,7 @@ class MainMoviesAdapter(
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         setMovieImg(holder.movieImg, position)
         holder.movieImg.setOnClickListener {
-            holder.saveArgs(movieList[position].id.toString())
+            holder.saveArgs(movieList[position].id.toString(),flag)
         }
     }
 

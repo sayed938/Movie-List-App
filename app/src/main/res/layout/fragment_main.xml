@@ -57,7 +57,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainRecycler"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="613.dp"
+        android:layout_marginBottom="50.dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
