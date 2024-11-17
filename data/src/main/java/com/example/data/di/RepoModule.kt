@@ -42,4 +42,6 @@ object RepoModule {
     fun provideSearchRepo(movieService: MovieService): SearchRepo {
         return SearchRepoImpl(movieService)
     }
+
+
 }
