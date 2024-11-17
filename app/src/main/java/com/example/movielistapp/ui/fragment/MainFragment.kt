@@ -38,6 +38,7 @@ class MainFragment :
         return binding.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.categoryRecycler.layoutManager =
@@ -55,7 +56,8 @@ class MainFragment :
                     delay(1000)
                 } else {
                     binding.mainRecycler.adapter =
-                        MainMoviesAdapter(it.results)
+                        MainMoviesAdapter(it.results,0)
+                    MainMoviesAdapter(it.results,0).notifyDataSetChanged()
                 }
 
             }
@@ -77,7 +79,7 @@ class MainFragment :
                             delay(1000)
                         } else {
                             binding.mainRecycler.adapter =
-                                MainMoviesAdapter(it.results)
+                                MainMoviesAdapter(it.results,0)
                         }
 
                     }
@@ -89,7 +91,7 @@ class MainFragment :
                             delay(1000)
                         } else {
                             binding.mainRecycler.adapter =
-                                MainMoviesAdapter(it.results)
+                                MainMoviesAdapter(it.results,0)
                         }
 
                     }
@@ -102,7 +104,7 @@ class MainFragment :
                                 delay(1000)
                             } else {
                                 binding.mainRecycler.adapter =
-                                    MainMoviesAdapter(it.results)
+                                    MainMoviesAdapter(it.results,0)
 
 
                             }
@@ -117,7 +119,7 @@ class MainFragment :
                                 delay(1000)
                             } else {
                                 binding.mainRecycler.adapter =
-                                    MainMoviesAdapter(it.results)
+                                    MainMoviesAdapter(it.results,0)
                             }
 
                         }

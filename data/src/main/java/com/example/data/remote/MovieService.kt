@@ -29,7 +29,7 @@ interface MovieService {
 
     @GET("discover/movie")
     suspend fun getSearchedMovies(
-        @Query("with_keywords") withKeyWords: String,
+        @Query("with_keywords") withKeywords: String,
         @Query("api_key") apiKey: String
     ):MovieRootModel
 }

@@ -23,8 +23,8 @@
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/detailsImageSlider"
-        android:layout_width="340dp"
-        android:layout_height="280.dp"
+        android:layout_width="280dp"
+        android:layout_height="300.dp"
         app:iss_auto_cycle="true"
         app:iss_delay="0"
         app:iss_error_image="@color/off_white"
@@ -60,31 +60,42 @@
         app:layout_constraintStart_toEndOf="@+id/detailsMovieTitle"
         app:layout_constraintTop_toBottomOf="@+id/detailsImageSlider" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28.dp"
-        android:layout_marginTop="10.dp"
-        android:layout_marginEnd="5.dp"
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="390dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsMovieTitle">
+        app:layout_constraintTop_toBottomOf="@+id/detailsImageSlider">
 
-        <TextView
-            android:id="@+id/movieDetailsBody"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lineHeight="25dp"
-            android:textSize="14.sp"
-            android:textStyle="bold"
+            android:layout_marginStart="28.dp"
+            android:layout_marginTop="10.dp"
+            android:layout_marginEnd="5.dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/detailsMovieTitle">
+
+            <TextView
+                android:id="@+id/movieDetailsBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineHeight="25dp"
+                android:layout_marginBottom="20.dp"
+                android:textSize="14.sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/progressBar"
