@@ -34,3 +34,4 @@ class SearchRepoImpl @Inject constructor(private var movieService: MovieService)
         movieService.getSearchedMovies(movieKeyWord,AppData.apiKey)
 
 }
+class LocalReoImpl @Inject constructor()

@@ -50,4 +50,10 @@ dependencies {
     kapt(libs.androidx.hilt.compiler)
     implementation (libs.androidx.preference.ktx)
 
+    //Room
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.room.compiler)
+    //noinspection KaptUsageInsteadOfKsp
+    kapt(libs.room.compiler)
+
 }
